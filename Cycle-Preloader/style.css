@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --hue: 220;
+}
+
+body {
+    background: radial-gradient(ellipse at center, #0d0d2b 0%, #000000 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preloader-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* Glowing ring behind the bike */
+.glow-ring {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(#ff6ec7, #00e5ff, #ffe600, #7fff00, #ff6ec7);
+    animation: spinRing 3s linear infinite;
+    filter: blur(18px);
+    opacity: 0.55;
+}
+
+@keyframes spinRing {
+    to { transform: rotate(360deg); }
+}
+
+.loader {
+    display: block;
+    width: 200px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 8px #00e5ff) drop-shadow(0 0 16px #ff6ec7);
+}
+
+/* Color each part individually */
+.loader_tire {
+    stroke: #00e5ff;
+    animation: bikeTire 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 4px #00e5ff);
+}
+
+.loader_spokes {
+    stroke: #7fff00;
+    animation: bikeSpokes 3s ease-in-out infinite;
+}
+
+.loader_spokes-spin {
+    animation: bikeSpokesSpin 3s linear infinite;
+}
+
+.loader_pedals {
+    stroke: #ffe600;
+    animation: bikePedals 3s ease-in-out infinite;
+}
+
+.loader_pedals-spin {
+    animation: bikePedalsSpin 3s linear infinite;
+}
+
+.loader_body {
+    stroke: #ff6ec7;
+    animation: bikeBody 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 3px #ff6ec7);
+}
+
+.loader_seat {
+    stroke: #ff9f43;
+    animation: bikeSeat 3s ease-in-out infinite;
+}
+
+.loader_handlebars {
+    stroke: #a29bfe;
+    animation: bikeHandlebars 3s ease-in-out infinite;
+}
+
+.loader_front {
+    stroke: #fd79a8;
+    animation: bikeFront 3s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes bikeBody {
+    from { stroke-dashoffset: 79; }
+    33%, 67% { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -79; }
+}
+
+@keyframes bikeFront {
+    from { stroke-dashoffset: 19; }
+    33%, 67% { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -19; }
+}
+
+@keyframes bikeHandlebars {
+    from { stroke-dashoffset: 10; }
+    33%, 67% { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -10; }
+}
+
+@keyframes bikePedals {
+    from { animation-timing-function: ease-in; stroke-dashoffset: -25.133; }
+    33%, 67% { animation-timing-function: ease-out; stroke-dashoffset: -21.991; }
+    to { stroke-dashoffset: -25.133; }
+}
+
+@keyframes bikePedalsSpin {
+    from { transform: rotate(0.1875turn); }
+    to { transform: rotate(3.1875turn); }
+}
+
+@keyframes bikeSeat {
+    from { stroke-dashoffset: 5; }
+    33%, 67% { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -5; }
+}
+
+@keyframes bikeSpokes {
+    from { animation-timing-function: ease-in; stroke-dashoffset: -31.416; }
+    33%, 67% { animation-timing-function: ease-out; stroke-dashoffset: -23.562; }
+    to { stroke-dashoffset: -31.416; }
+}
+
+@keyframes bikeSpokesSpin {
+    from { transform: rotate(0); }
+    to { transform: rotate(3turn); }
+}
+
+@keyframes bikeTire {
+    from { animation-timing-function: ease-in; stroke-dashoffset: 56.549; transform: rotate(0); }
+    33% { stroke-dashoffset: 0; transform: rotate(0.33turn); }
+    67% { animation-timing-function: ease-out; stroke-dashoffset: 0; transform: rotate(0.67turn); }
+    to { stroke-dashoffset: -56.549; transform: rotate(1turn); }
+}
+
+/* Loading Text */
+.loader-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff6ec7, #00e5ff, #ffe600, #7fff00, #ff6ec7);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 2.5s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.5));
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% center; }
+    100% { background-position: 300% center; }
+}
