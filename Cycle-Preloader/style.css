@@ -165,6 +165,32 @@ body {
     filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.5));
 }
 
+.loader-percent {
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Loading Bar */
+.loader-bar-track {
+    width: 220px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.loader-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff6ec7, #00e5ff, #ffe600, #7fff00, #ff6ec7);
+    background-size: 300% auto;
+    animation: gradientShift 2.5s linear infinite;
+    box-shadow: 0 0 10px #00e5ff, 0 0 20px #ff6ec7;
+    transition: width 0.15s ease-out;
+}
+
 @keyframes gradientShift {
     0%   { background-position: 0% center; }
     100% { background-position: 300% center; }
