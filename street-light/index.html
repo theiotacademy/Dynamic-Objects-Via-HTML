@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Street light</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="dark-overlay"></div>
+
+  <svg class="city-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#05001a" />
+        <stop offset="60%" stop-color="#1B022B" />
+        <stop offset="100%" stop-color="#2D0347" />
+      </linearGradient>
+      <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#fffff0" stop-opacity="1" />
+        <stop offset="100%" stop-color="#fffff0" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FFFF82" stop-opacity="0.4" />
+        <stop offset="100%" stop-color="#FFFF82" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <!-- Sky -->
+    <rect width="1440" height="900" fill="url(#nightSky)" />
+
+    <!-- Moon -->
+    <circle cx="1200" cy="80" r="45" fill="#fffff0" opacity="0.9" />
+    <circle cx="1220" cy="68" r="38" fill="#1a0030" opacity="0.85" />
+    <ellipse cx="1200" cy="80" rx="90" ry="90" fill="url(#moonGlow)" opacity="0.3" />
+
+    <!-- Stars -->
+    <circle cx="80" cy="40" r="1.5" fill="white" opacity="0.9" />
+    <circle cx="150" cy="90" r="1" fill="white" opacity="0.7" />
+    <circle cx="260" cy="30" r="2" fill="white" opacity="0.8" />
+    <circle cx="340" cy="70" r="1" fill="white" opacity="0.6" />
+    <circle cx="420" cy="25" r="1.5" fill="white" opacity="0.9" />
+    <circle cx="530" cy="55" r="1" fill="white" opacity="0.7" />
+    <circle cx="610" cy="20" r="2" fill="white" opacity="0.8" />
+    <circle cx="700" cy="80" r="1" fill="white" opacity="0.6" />
+    <circle cx="780" cy="35" r="1.5" fill="white" opacity="0.9" />
+    <circle cx="870" cy="60" r="1" fill="white" opacity="0.7" />
+    <circle cx="950" cy="15" r="2" fill="white" opacity="0.8" />
+    <circle cx="1040" cy="75" r="1" fill="white" opacity="0.6" />
+    <circle cx="1100" cy="40" r="1.5" fill="white" opacity="0.9" />
+    <circle cx="1310" cy="55" r="1" fill="white" opacity="0.7" />
+    <circle cx="1380" cy="25" r="2" fill="white" opacity="0.8" />
+    <circle cx="190" cy="110" r="1" fill="white" opacity="0.5" />
+    <circle cx="480" cy="100" r="1.5" fill="white" opacity="0.6" />
+    <circle cx="830" cy="105" r="1" fill="white" opacity="0.5" />
+    <circle cx="1250" cy="95" r="1.5" fill="white" opacity="0.7" />
+
+    <!-- Far background buildings -->
+    <rect x="0" y="420" width="55" height="200" fill="#0a0020" />
+    <rect x="60" y="460" width="40" height="160" fill="#0c0025" />
+    <rect x="105" y="400" width="65" height="220" fill="#08001c" />
+    <rect x="175" y="440" width="45" height="180" fill="#0a0020" />
+    <rect x="225" y="410" width="70" height="210" fill="#0c0025" />
+    <rect x="300" y="450" width="50" height="170" fill="#08001c" />
+    <rect x="355" y="390" width="80" height="230" fill="#0a0020" />
+    <rect x="440" y="430" width="55" height="190" fill="#0c0025" />
+    <rect x="500" y="405" width="65" height="215" fill="#08001c" />
+    <rect x="570" y="445" width="50" height="175" fill="#0a0020" />
+    <rect x="625" y="415" width="75" height="205" fill="#0c0025" />
+    <rect x="705" y="435" width="60" height="185" fill="#08001c" />
+    <rect x="770" y="395" width="80" height="225" fill="#0a0020" />
+    <rect x="855" y="455" width="45" height="165" fill="#0c0025" />
+    <rect x="905" y="420" width="70" height="200" fill="#08001c" />
+    <rect x="980" y="440" width="55" height="180" fill="#0a0020" />
+    <rect x="1040" y="400" width="75" height="220" fill="#0c0025" />
+    <rect x="1120" y="430" width="60" height="190" fill="#08001c" />
+    <rect x="1185" y="410" width="80" height="210" fill="#0a0020" />
+    <rect x="1270" y="450" width="50" height="170" fill="#0c0025" />
+    <rect x="1325" y="395" width="70" height="225" fill="#08001c" />
+    <rect x="1400" y="425" width="40" height="195" fill="#0a0020" />
+
+    <!-- Mid buildings with glowing windows -->
+    <rect x="0" y="340" width="80" height="280" fill="#0f0535" />
+    <rect x="10" y="352" width="14" height="14" fill="#FFFF82" opacity="0.6" />
+    <rect x="34" y="352" width="14" height="14" fill="#FFFF82" opacity="0.3" />
+    <rect x="58" y="352" width="14" height="14" fill="#FFFF82" opacity="0.7" />
+    <rect x="10" y="378" width="14" height="14" fill="#FFFF82" opacity="0.4" />
+    <rect x="34" y="378" width="14" height="14" fill="#FFFF82" opacity="0.8" />
+    <rect x="58" y="378" width="14" height="14" fill="#FFFF82" opacity="0.2" />
+    <rect x="10" y="404" width="14" height="14" fill="#FFFF82" opacity="0.7" />
+    <rect x="34" y="404" width="14" height="14" fill="#FFFF82" opacity="0.5" />
+    <rect x="58" y="404" width="14" height="14" fill="#FFFF82" opacity="0.9" />
+
+    <rect x="90" y="300" width="100" height="320" fill="#130640" />
+    <rect x="102" y="314" width="16" height="16" fill="#FFFF82" opacity="0.5" />
+    <rect x="130" y="314" width="16" height="16" fill="#FFFF82" opacity="0.8" />
+    <rect x="158" y="314" width="16" height="16" fill="#FFFF82" opacity="0.3" />
+    <rect x="102" y="344" width="16" height="16" fill="#FFFF82" opacity="0.9" />
+    <rect x="130" y="344" width="16" height="16" fill="#FFFF82" opacity="0.4" />
+    <rect x="158" y="344" width="16" height="16" fill="#FFFF82" opacity="0.7" />
+    <rect x="102" y="374" width="16" height="16" fill="#FFFF82" opacity="0.6" />
+    <rect x="130" y="374" width="16" height="16" fill="#FFFF82" opacity="0.2" />
+    <rect x="158" y="374" width="16" height="16" fill="#FFFF82" opacity="0.8" />
+    <rect x="102" y="404" width="16" height="16" fill="#FFFF82" opacity="0.3" />
+    <rect x="130" y="404" width="16" height="16" fill="#FFFF82" opacity="0.7" />
+
+    <rect x="200" y="360" width="75" height="260" fill="#0f0535" />
+    <rect x="212" y="374" width="13" height="13" fill="#FFFF82" opacity="0.7" />
+    <rect x="236" y="374" width="13" height="13" fill="#FFFF82" opacity="0.4" />
+    <rect x="212" y="398" width="13" height="13" fill="#FFFF82" opacity="0.9" />
+    <rect x="236" y="398" width="13" height="13" fill="#FFFF82" opacity="0.5" />
+    <rect x="212" y="422" width="13" height="13" fill="#FFFF82" opacity="0.3" />
+    <rect x="236" y="422" width="13" height="13" fill="#FFFF82" opacity="0.8" />
+
+    <rect x="285" y="280" width="110" height="340" fill="#130640" />
+    <rect x="297" y="295" width="16" height="16" fill="#FFFF82" opacity="0.6" />
+    <rect x="325" y="295" width="16" height="16" fill="#FFFF82" opacity="0.9" />
+    <rect x="353" y="295" width="16" height="16" fill="#FFFF82" opacity="0.4" />
+    <rect x="297" y="325" width="16" height="16" fill="#FFFF82" opacity="0.7" />
+    <rect x="325" y="325" width="16" height="16" fill="#FFFF82" opacity="0.3" />
+    <rect x="353" y="325" width="16" height="16" fill="#FFFF82" opacity="0.8" />
+    <rect x="297" y="355" width="16" height="16" fill="#FFFF82" opacity="0.5" />
+    <rect x="325" y="355" width="16" height="16" fill="#FFFF82" opacity="0.7" />
+    <rect x="353" y="355" width="16" height="16" fill="#FFFF82" opacity="0.2" />
+    <rect x="297" y="385" width="16" height="16" fill="#FFFF82" opacity="0.9" />
+    <rect x="325" y="385" width="16" height="16" fill="#FFFF82" opacity="0.6" />
+
+    <!-- Right side buildings -->
+    <rect x="900" y="320" width="90" height="300" fill="#130640" />
+    <rect x="912" y="334" width="15" height="15" fill="#FFFF82" opacity="0.7" />
+    <rect x="938" y="334" width="15" height="15" fill="#FFFF82" opacity="0.4" />
+    <rect x="964" y="334" width="15" height="15" fill="#FFFF82" opacity="0.8" />
+    <rect x="912" y="362" width="15" height="15" fill="#FFFF82" opacity="0.3" />
+    <rect x="938" y="362" width="15" height="15" fill="#FFFF82" opacity="0.9" />
+    <rect x="964" y="362" width="15" height="15" fill="#FFFF82" opacity="0.5" />
+    <rect x="912" y="390" width="15" height="15" fill="#FFFF82" opacity="0.6" />
+    <rect x="938" y="390" width="15" height="15" fill="#FFFF82" opacity="0.2" />
+    <rect x="964" y="390" width="15" height="15" fill="#FFFF82" opacity="0.7" />
+    <rect x="912" y="418" width="15" height="15" fill="#FFFF82" opacity="0.8" />
+    <rect x="938" y="418" width="15" height="15" fill="#FFFF82" opacity="0.4" />
+
+    <rect x="1000" y="290" width="110" height="330" fill="#0f0535" />
+    <rect x="1012" y="305" width="16" height="16" fill="#FFFF82" opacity="0.5" />
+    <rect x="1040" y="305" width="16" height="16" fill="#FFFF82" opacity="0.9" />
+    <rect x="1068" y="305" width="16" height="16" fill="#FFFF82" opacity="0.3" />
+    <rect x="1012" y="335" width="16" height="16" fill="#FFFF82" opacity="0.8" />
+    <rect x="1040" y="335" width="16" height="16" fill="#FFFF82" opacity="0.4" />
+    <rect x="1068" y="335" width="16" height="16" fill="#FFFF82" opacity="0.7" />
+    <rect x="1012" y="365" width="16" height="16" fill="#FFFF82" opacity="0.6" />
+    <rect x="1040" y="365" width="16" height="16" fill="#FFFF82" opacity="0.2" />
+    <rect x="1068" y="365" width="16" height="16" fill="#FFFF82" opacity="0.9" />
+    <rect x="1012" y="395" width="16" height="16" fill="#FFFF82" opacity="0.5" />
+    <rect x="1040" y="395" width="16" height="16" fill="#FFFF82" opacity="0.7" />
+
+    <rect x="1120" y="340" width="85" height="280" fill="#130640" />
+    <rect x="1132" y="355" width="14" height="14" fill="#FFFF82" opacity="0.6" />
+    <rect x="1157" y="355" width="14" height="14" fill="#FFFF82" opacity="0.3" />
+    <rect x="1182" y="355" width="14" height="14" fill="#FFFF82" opacity="0.8" />
+    <rect x="1132" y="381" width="14" height="14" fill="#FFFF82" opacity="0.4" />
+    <rect x="1157" y="381" width="14" height="14" fill="#FFFF82" opacity="0.7" />
+    <rect x="1182" y="381" width="14" height="14" fill="#FFFF82" opacity="0.5" />
+    <rect x="1132" y="407" width="14" height="14" fill="#FFFF82" opacity="0.9" />
+    <rect x="1157" y="407" width="14" height="14" fill="#FFFF82" opacity="0.2" />
+    <rect x="1182" y="407" width="14" height="14" fill="#FFFF82" opacity="0.7" />
+
+    <rect x="1215" y="300" width="100" height="320" fill="#0f0535" />
+    <rect x="1227" y="315" width="15" height="15" fill="#FFFF82" opacity="0.7" />
+    <rect x="1254" y="315" width="15" height="15" fill="#FFFF82" opacity="0.4" />
+    <rect x="1281" y="315" width="15" height="15" fill="#FFFF82" opacity="0.8" />
+    <rect x="1227" y="344" width="15" height="15" fill="#FFFF82" opacity="0.3" />
+    <rect x="1254" y="344" width="15" height="15" fill="#FFFF82" opacity="0.9" />
+    <rect x="1281" y="344" width="15" height="15" fill="#FFFF82" opacity="0.5" />
+    <rect x="1227" y="373" width="15" height="15" fill="#FFFF82" opacity="0.6" />
+    <rect x="1254" y="373" width="15" height="15" fill="#FFFF82" opacity="0.2" />
+    <rect x="1281" y="373" width="15" height="15" fill="#FFFF82" opacity="0.7" />
+
+    <rect x="1325" y="360" width="75" height="260" fill="#130640" />
+    <rect x="1337" y="374" width="13" height="13" fill="#FFFF82" opacity="0.8" />
+    <rect x="1361" y="374" width="13" height="13" fill="#FFFF82" opacity="0.4" />
+    <rect x="1337" y="398" width="13" height="13" fill="#FFFF82" opacity="0.6" />
+    <rect x="1361" y="398" width="13" height="13" fill="#FFFF82" opacity="0.9" />
+    <rect x="1337" y="422" width="13" height="13" fill="#FFFF82" opacity="0.3" />
+    <rect x="1361" y="422" width="13" height="13" fill="#FFFF82" opacity="0.7" />
+
+    <rect x="1405" y="330" width="35" height="290" fill="#0f0535" />
+    <rect x="1410" y="345" width="12" height="12" fill="#FFFF82" opacity="0.5" />
+    <rect x="1410" y="369" width="12" height="12" fill="#FFFF82" opacity="0.8" />
+    <rect x="1410" y="393" width="12" height="12" fill="#FFFF82" opacity="0.3" />
+
+    <!-- Footpath left -->
+    <rect x="0" y="618" width="420" height="30" fill="#2a1045" />
+    <rect x="0" y="645" width="420" height="6" fill="#1a0830" />
+
+    <!-- Footpath right -->
+    <rect x="1020" y="618" width="420" height="30" fill="#2a1045" />
+    <rect x="1020" y="645" width="420" height="6" fill="#1a0830" />
+
+    <!-- Road -->
+    <rect x="0" y="648" width="1440" height="252" fill="#12001f" />
+    <rect x="0" y="648" width="1440" height="8" fill="#3a1060" opacity="0.6" />
+
+    <!-- Road dashes center line -->
+    <rect x="0" y="755" width="160" height="10" rx="5" fill="#ffffff" opacity="0.25" />
+    <rect x="220" y="755" width="160" height="10" rx="5" fill="#ffffff" opacity="0.25" />
+    <rect x="440" y="755" width="160" height="10" rx="5" fill="#ffffff" opacity="0.25" />
+    <rect x="660" y="755" width="160" height="10" rx="5" fill="#ffffff" opacity="0.25" />
+    <rect x="880" y="755" width="160" height="10" rx="5" fill="#ffffff" opacity="0.25" />
+    <rect x="1100" y="755" width="160" height="10" rx="5" fill="#ffffff" opacity="0.25" />
+    <rect x="1320" y="755" width="160" height="10" rx="5" fill="#ffffff" opacity="0.25" />
+
+    <!-- Dark overlay rect: visible on light-off, sits above buildings but below cars -->
+    <rect class="svg-dark-overlay" x="0" y="250" width="1440" height="650" fill="rgba(0,0,10,0.82)" opacity="0" />
+
+    <!-- Street Light — rendered first so cars appear on top -->
+    <foreignObject x="100" y="101" width="600" height="500" overflow="visible">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="frame">
+        <div class="light-wrapper">
+          <div class="bulb" id="bulb" onclick="toggleLight()"></div>
+          <div class="arch"></div>
+          <div class="top"></div>
+          <div class="middle"></div>
+          <div class="bottom"></div>
+          <div class="light"></div>
+          <div class="light-circle"></div>
+          <div class="shadow"></div>
+        </div>
+      </div>
+    </foreignObject>
+
+    <!-- Car 1: Red, left to right, lane y=660 -->
+    <g class="car1">
+      <rect x="0" y="660" width="120" height="38" rx="8" fill="#c0392b" />
+      <rect x="18" y="643" width="78" height="25" rx="7" fill="#e74c3c" />
+      <rect x="24" y="647" width="28" height="17" rx="3" fill="#aee6f8" opacity="0.85" />
+      <rect x="58" y="647" width="28" height="17" rx="3" fill="#aee6f8" opacity="0.85" />
+      <circle cx="24" cy="700" r="13" fill="#111" /><circle cx="24" cy="700" r="5" fill="#555" />
+      <circle cx="96" cy="700" r="13" fill="#111" /><circle cx="96" cy="700" r="5" fill="#555" />
+      <rect x="114" y="664" width="10" height="7" rx="2" fill="#ffffaa" />
+      <ellipse cx="130" cy="668" rx="20" ry="9" fill="rgba(255,255,180,0.15)" />
+      <rect x="0" y="664" width="8" height="7" rx="2" fill="#ff2222" />
+    </g>
+
+    <!-- Car 2: Blue, right to left, lane y=700 — front faces LEFT -->
+    <g class="car2">
+      <!-- body -->
+      <rect x="1310" y="700" width="110" height="34" rx="7" fill="#1a5276" />
+      <!-- cabin shifted toward LEFT (front) -->
+      <rect x="1314" y="685" width="72" height="23" rx="6" fill="#2471a3" />
+      <!-- windows: left window near front -->
+      <rect x="1318" y="689" width="26" height="15" rx="3" fill="#aee6f8" opacity="0.85" />
+      <rect x="1350" y="689" width="24" height="15" rx="3" fill="#aee6f8" opacity="0.85" />
+      <!-- wheels -->
+      <circle cx="1332" cy="736" r="12" fill="#111" /><circle cx="1332" cy="736" r="5" fill="#555" />
+      <circle cx="1398" cy="736" r="12" fill="#111" /><circle cx="1398" cy="736" r="5" fill="#555" />
+      <!-- headlights on LEFT (front for RTL) -->
+      <rect x="1310" y="704" width="10" height="6" rx="2" fill="#ffffaa" />
+      <ellipse cx="1294" cy="707" rx="18" ry="8" fill="rgba(255,255,180,0.18)" />
+      <!-- tail lights on RIGHT -->
+      <rect x="1413" y="704" width="7" height="6" rx="2" fill="#ff2222" />
+    </g>
+
+    <!-- Supercar 1: Gold, left to right, lane y=737 + air slash lines -->
+    <g class="sc1">
+      <!-- speed lines behind (left side) -->
+      <line x1="-10" y1="724" x2="-60" y2="724" stroke="#ffe066" stroke-width="2" stroke-linecap="round" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.1;0.7" dur="0.18s" repeatCount="indefinite"/>
+        <animate attributeName="x1" values="-10;-5;-10" dur="0.18s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-10" y1="730" x2="-80" y2="730" stroke="#ffe066" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.05;0.5" dur="0.18s" begin="0.06s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-10" y1="736" x2="-55" y2="736" stroke="#fff4aa" stroke-width="1" stroke-linecap="round" opacity="0.4">
+        <animate attributeName="opacity" values="0.4;0.05;0.4" dur="0.18s" begin="0.12s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-10" y1="742" x2="-70" y2="742" stroke="#ffe066" stroke-width="1.5" stroke-linecap="round" opacity="0.55">
+        <animate attributeName="opacity" values="0.55;0.08;0.55" dur="0.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-10" y1="748" x2="-45" y2="748" stroke="#fff4aa" stroke-width="1" stroke-linecap="round" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.05;0.3" dur="0.15s" begin="0.05s" repeatCount="indefinite"/>
+      </line>
+      <!-- car body -->
+      <rect x="0" y="737" width="130" height="22" rx="5" fill="#b8860b" />
+      <polygon points="20,737 45,719 100,719 115,737" fill="#daa520" />
+      <polygon points="46,720 58,725 90,725 100,720" fill="#aee6f8" opacity="0.8" />
+      <rect x="0" y="733" width="6" height="8" rx="1" fill="#8B6914" />
+      <rect x="0" y="731" width="18" height="3" rx="1" fill="#a07820" />
+      <circle cx="25" cy="760" r="11" fill="#111" /><circle cx="25" cy="760" r="5" fill="#888" />
+      <circle cx="105" cy="760" r="11" fill="#111" /><circle cx="105" cy="760" r="5" fill="#888" />
+      <rect x="120" y="740" width="10" height="5" rx="2" fill="#ffffcc" />
+      <ellipse cx="136" cy="742" rx="20" ry="7" fill="rgba(255,255,200,0.25)" />
+      <rect x="0" y="740" width="6" height="5" rx="2" fill="#ff1111" />
+    </g>
+
+    <!-- Supercar 2: Purple, right to left, lane y=775 + air slash lines -->
+    <g class="sc2">
+      <!-- speed lines behind (right side, car moves left) -->
+      <line x1="1440" y1="762" x2="1500" y2="762" stroke="#d966ff" stroke-width="2" stroke-linecap="round" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.1;0.7" dur="0.18s" repeatCount="indefinite"/>
+      </line>
+      <line x1="1440" y1="768" x2="1515" y2="768" stroke="#d966ff" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.05;0.5" dur="0.18s" begin="0.06s" repeatCount="indefinite"/>
+      </line>
+      <line x1="1440" y1="774" x2="1495" y2="774" stroke="#e8aaff" stroke-width="1" stroke-linecap="round" opacity="0.4">
+        <animate attributeName="opacity" values="0.4;0.05;0.4" dur="0.18s" begin="0.12s" repeatCount="indefinite"/>
+      </line>
+      <line x1="1440" y1="780" x2="1510" y2="780" stroke="#d966ff" stroke-width="1.5" stroke-linecap="round" opacity="0.55">
+        <animate attributeName="opacity" values="0.55;0.08;0.55" dur="0.2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="1440" y1="786" x2="1490" y2="786" stroke="#e8aaff" stroke-width="1" stroke-linecap="round" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;0.05;0.3" dur="0.15s" begin="0.05s" repeatCount="indefinite"/>
+      </line>
+      <!-- car body -->
+      <rect x="1310" y="775" width="130" height="22" rx="5" fill="#6a0dad" />
+      <!-- cabin shifted toward LEFT (front for RTL) -->
+      <polygon points="1315,775 1330,757 1395,757 1415,775" fill="#8e24aa" />
+      <polygon points="1331,758 1346,763 1388,763 1398,758" fill="#aee6f8" opacity="0.8" />
+      <!-- rear spoiler on RIGHT -->
+      <rect x="1434" y="771" width="6" height="8" rx="1" fill="#4a007d" />
+      <rect x="1422" y="769" width="18" height="3" rx="1" fill="#5c0099" />
+      <circle cx="1325" cy="798" r="11" fill="#111" /><circle cx="1325" cy="798" r="5" fill="#888" />
+      <circle cx="1405" cy="798" r="11" fill="#111" /><circle cx="1405" cy="798" r="5" fill="#888" />
+      <!-- headlights on LEFT (front for RTL) -->
+      <rect x="1300" y="778" width="10" height="5" rx="2" fill="#ffffcc" />
+      <ellipse cx="1285" cy="781" rx="22" ry="8" fill="rgba(255,255,200,0.25)" />
+      <!-- tail lights on RIGHT -->
+      <rect x="1434" y="778" width="6" height="5" rx="2" fill="#ff1111" />
+    </g>
+
+    <!-- Walking person 1: walks full screen left to right -->
+    <g class="walk1">
+      <circle cx="10" cy="600" r="7" fill="#f5cba7" />
+      <rect x="6" y="607" width="8" height="14" rx="3" fill="#3498db" />
+      <!-- left leg -->
+      <line x1="10" y1="621" x2="4" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="-25,10,621; 25,10,621; -25,10,621" dur="0.8s" repeatCount="indefinite"/>
+      </line>
+      <!-- right leg -->
+      <line x1="10" y1="621" x2="16" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="25,10,621; -25,10,621; 25,10,621" dur="0.8s" repeatCount="indefinite"/>
+      </line>
+      <!-- left arm -->
+      <line x1="10" y1="610" x2="3" y2="619" stroke="#f5cba7" stroke-width="2.5" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="25,10,610; -25,10,610; 25,10,610" dur="0.8s" repeatCount="indefinite"/>
+      </line>
+      <!-- right arm -->
+      <line x1="10" y1="610" x2="17" y2="619" stroke="#f5cba7" stroke-width="2.5" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="-25,10,610; 25,10,610; -25,10,610" dur="0.8s" repeatCount="indefinite"/>
+      </line>
+    </g>
+
+    <!-- Walking person 2: walks full screen, slight delay offset -->
+    <g class="walk2">
+      <circle cx="10" cy="600" r="7" fill="#f1948a" />
+      <rect x="6" y="607" width="8" height="14" rx="3" fill="#e74c3c" />
+      <!-- left leg -->
+      <line x1="10" y1="621" x2="4" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="-25,10,621; 25,10,621; -25,10,621" dur="0.8s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+      <!-- right leg -->
+      <line x1="10" y1="621" x2="16" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="25,10,621; -25,10,621; 25,10,621" dur="0.8s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+      <!-- left arm -->
+      <line x1="10" y1="610" x2="3" y2="619" stroke="#f1948a" stroke-width="2.5" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="25,10,610; -25,10,610; 25,10,610" dur="0.8s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+      <!-- right arm -->
+      <line x1="10" y1="610" x2="17" y2="619" stroke="#f1948a" stroke-width="2.5" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate"
+          values="-25,10,610; 25,10,610; -25,10,610" dur="0.8s" begin="0.4s" repeatCount="indefinite"/>
+      </line>
+    </g>
+
+    <!-- Talking pair on LEFT footpath (x=295) -->
+    <g transform="translate(295,0)">
+      <circle cx="0" cy="600" r="7" fill="#aed6f1" />
+      <rect x="-4" y="607" width="8" height="14" rx="3" fill="#1a5276" />
+      <line x1="-2" y1="621" x2="-5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="4" y1="621" x2="5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="4" y1="610" x2="11" y2="604" stroke="#aed6f1" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="-4" y1="610" x2="-9" y2="619" stroke="#aed6f1" stroke-width="2.5" stroke-linecap="round" />
+      <ellipse cx="8" cy="587" rx="12" ry="7" fill="white" opacity="0.85" />
+      <polygon points="4,594 8,600 12,594" fill="white" opacity="0.85" />
+      <circle cx="4" cy="587" r="1.5" fill="#555" />
+      <circle cx="8" cy="587" r="1.5" fill="#555" />
+      <circle cx="12" cy="587" r="1.5" fill="#555" />
+    </g>
+    <g transform="translate(330,0)">
+      <circle cx="0" cy="600" r="7" fill="#f9e79f" />
+      <rect x="-4" y="607" width="8" height="14" rx="3" fill="#d4a017" />
+      <line x1="-2" y1="621" x2="-5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="4" y1="621" x2="5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="-4" y1="610" x2="-11" y2="604" stroke="#f9e79f" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="4" y1="610" x2="9" y2="619" stroke="#f9e79f" stroke-width="2.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Talking pair on RIGHT footpath (x=1075) -->
+    <g transform="translate(1075,0)">
+      <circle cx="0" cy="600" r="7" fill="#f5cba7" />
+      <rect x="-4" y="607" width="8" height="14" rx="3" fill="#27ae60" />
+      <line x1="-2" y1="621" x2="-5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="4" y1="621" x2="5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="4" y1="610" x2="11" y2="604" stroke="#f5cba7" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="-4" y1="610" x2="-9" y2="619" stroke="#f5cba7" stroke-width="2.5" stroke-linecap="round" />
+      <ellipse cx="8" cy="587" rx="12" ry="7" fill="white" opacity="0.85" />
+      <polygon points="4,594 8,600 12,594" fill="white" opacity="0.85" />
+      <circle cx="4" cy="587" r="1.5" fill="#555" />
+      <circle cx="8" cy="587" r="1.5" fill="#555" />
+      <circle cx="12" cy="587" r="1.5" fill="#555" />
+    </g>
+    <g transform="translate(1110,0)">
+      <circle cx="0" cy="600" r="7" fill="#d7bde2" />
+      <rect x="-4" y="607" width="8" height="14" rx="3" fill="#8e44ad" />
+      <line x1="-2" y1="621" x2="-5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="4" y1="621" x2="5" y2="636" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" />
+      <line x1="-4" y1="610" x2="-11" y2="604" stroke="#d7bde2" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="4" y1="610" x2="9" y2="619" stroke="#d7bde2" stroke-width="2.5" stroke-linecap="round" />
+    </g>
+
+  </svg>
+
+  <script>
+    const svgOverlay = document.querySelector('.svg-dark-overlay');
+
+    function toggleLight() {
+      document.body.classList.toggle('off');
+      const isOff = document.body.classList.contains('off');
+      svgOverlay.style.transition = 'opacity 0.8s ease';
+      svgOverlay.style.opacity = isOff ? '1' : '0';
+    }
+  </script>
+</body>
+
+</html>

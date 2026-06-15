@@ -1,0 +1,294 @@
+body {
+  background: radial-gradient(circle, #520580 0%, #2D0347 34%, #1B022B 65%, black 100%);
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.city-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.frame {
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.light-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bulb {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #ffffa0 50%, #ffcc00 100%);
+  filter: blur(1px);
+  transform: translate(75px, 105px);
+  box-shadow:
+    0 0 10px 6px #ffffff,
+    0 0 30px 14px #ffe066,
+    0 0 60px 24px #ffaa00,
+    0 0 100px 40px rgba(255, 180, 0, 0.4);
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  animation: bulbFlicker 4s infinite;
+}
+
+@keyframes bulbFlicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  93% {
+    opacity: 0.6;
+  }
+
+  94% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 0.7;
+  }
+
+  97% {
+    opacity: 1;
+  }
+}
+
+.arch {
+  border: 12px solid #1C1570;
+  border-bottom: none;
+  width: 4rem;
+  height: 3rem;
+  border-radius: 50% 50% 0 0;
+  transform: translatex(37px);
+}
+
+.arch:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #160559;
+  width: 2rem;
+  height: 0.7rem;
+  border-radius: 10px 10px 0 0;
+  transform: translate(22px, 10px);
+  z-index: 13;
+}
+
+.top {
+  width: 12px;
+  height: 3rem;
+  background: #1C1570;
+}
+
+.middle {
+  width: 1.5rem;
+  height: 10rem;
+  background: #1C1570;
+  box-shadow: inset 3px 3px 10px #0F003D;
+}
+
+.middle:before {
+  content: "";
+  position: absolute;
+  background: #160559;
+  width: 2rem;
+  height: 0.8rem;
+  border-radius: 15px;
+  transform: translate(-3px, -2px);
+}
+
+.bottom {
+  width: 3rem;
+  height: 7rem;
+  background: #1C1570;
+  z-index: -1;
+  box-shadow: inset 3px 3px 10px #0F003D;
+}
+
+.bottom:before {
+  content: "";
+  position: absolute;
+  background: #160559;
+  width: 3.5rem;
+  height: 1rem;
+  border-radius: 15px;
+  transform: translate(-3px, -2px);
+}
+
+.bottom:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: #160559;
+  width: 4.5rem;
+  height: 1.2rem;
+  border-radius: 15px 15px 0 0;
+  transform: translate(-12px);
+}
+
+.light {
+  position: absolute;
+  top: 190px;
+  left: 50%;
+  transform: translateX(-30%);
+  width: 22rem;
+  height: 20rem;
+  clip-path: polygon(47% 0, 56% 0, 101% 100%, 0% 100%);
+  z-index: -1;
+  transition: opacity 0.3s;
+  background: linear-gradient(to bottom, rgba(255, 220, 80, 0.6) 0%, rgba(255, 180, 0, 0.28) 50%, rgba(255, 140, 0, 0.06) 100%);
+  filter: blur(6px);
+  animation: lightFlicker 4s infinite;
+}
+
+@keyframes lightFlicker {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  93% {
+    opacity: 0.5;
+  }
+
+  94% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 0.6;
+  }
+
+  97% {
+    opacity: 1;
+  }
+}
+
+.light-circle {
+  width: 22rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -30px;
+  left: 62%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(255, 200, 50, 0.55) 0%, rgba(255, 150, 0, 0.2) 50%, transparent 100%);
+  filter: blur(8px);
+  transition: opacity 0.3s;
+  animation: lightFlicker 4s infinite;
+}
+
+/* OFF state */
+body.off .bulb {
+  background: #555;
+  box-shadow: none;
+  animation: none;
+}
+
+body.off .light,
+body.off .light-circle {
+  opacity: 0;
+  animation: none;
+}
+
+body.off .dark-overlay {
+  opacity: 1;
+}
+
+.dark-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 10, 0) 0%,
+    rgba(0, 0, 10, 0) 18%,
+    rgba(0, 0, 10, 0.78) 40%,
+    rgba(0, 0, 10, 0.85) 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 10;
+}
+
+/* Cars: left to right */
+@keyframes car1move {
+  from { transform: translateX(-150px); }
+  to   { transform: translateX(1600px); }
+}
+.car1 { animation: car1move 7s linear infinite; }
+
+/* Car 2: right to left — drawn at x=1310, moves left off screen */
+@keyframes car2move {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-1600px); }
+}
+.car2 { animation: car2move 9s linear infinite; }
+
+/* Supercar 1: left to right — faster */
+@keyframes sc1move {
+  from { transform: translateX(-160px); }
+  to   { transform: translateX(1620px); }
+}
+.sc1 { animation: sc1move 2.5s linear infinite; }
+
+/* Supercar 2: right to left — faster */
+@keyframes sc2move {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-1620px); }
+}
+.sc2 { animation: sc2move 3s linear infinite; }
+
+/* Walking people — traverse full screen width so they never disappear */
+@keyframes walk1move {
+  from { transform: translateX(-30px); }
+  to   { transform: translateX(1480px); }
+}
+.walk1 { animation: walk1move 30s linear infinite; }
+
+@keyframes walk2move {
+  from { transform: translateX(-30px); }
+  to   { transform: translateX(1480px); }
+}
+.walk2 { animation: walk2move 38s linear infinite; animation-delay: -15s; }
+
+.shadow {
+  position: absolute;
+  bottom: -20px;
+  width: 12rem;
+  height: 2rem;
+  background: #0F003D;
+  border-radius: 50%;
+  z-index: -2;
+  transform: skew(35deg);
+}
