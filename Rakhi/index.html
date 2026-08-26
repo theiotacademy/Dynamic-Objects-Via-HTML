@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌻 Rakhi Surprise - Shinchan Style!</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Caveat:wght@500;700&family=Baloo+2:wght@700;800&family=Nunito:wght@400;700;900&family=Bangers&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --shin-yellow: #FFE135;
+      --shin-yellow-dark: #e6c200;
+      --shin-red: #E8192C;
+      --shin-red-dark: #b01020;
+      --shin-blue: #1a6fc4;
+      --shin-sky: #87CEEB;
+      --shin-green: #4caf50;
+      --shin-orange: #FF8C00;
+      --shin-white: #FFFDE7;
+      --shin-cream: #FFF9C4;
+      --ink: #1a1a1a;
+      --panel-bg: #fffde7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--ink);
+      overflow: hidden;
+      background-color: var(--shin-sky);
+      background-image:
+        radial-gradient(circle at 15% 20%, #fff 18px, transparent 18px),
+        radial-gradient(circle at 25% 18%, #fff 12px, transparent 12px),
+        radial-gradient(circle at 70% 12%, #fff 22px, transparent 22px),
+        radial-gradient(circle at 80% 15%, #fff 14px, transparent 14px),
+        radial-gradient(circle at 50% 80%, #7ec850 120px, transparent 120px),
+        radial-gradient(circle at 10% 85%, #7ec850 80px, transparent 80px),
+        radial-gradient(circle at 90% 88%, #7ec850 90px, transparent 90px);
+    }
+
+    .stage {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .card {
+      position: relative;
+      width: min(920px, 100%);
+      height: min(580px, 92vh);
+      background: var(--panel-bg);
+      border-radius: 16px;
+      border: 5px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px;
+      animation: pop .45s ease;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    @keyframes pop {
+      from { opacity: 0; transform: scale(.82) rotate(-3deg); }
+      to   { opacity: 1; transform: scale(1)  rotate(0deg); }
+    }
+
+    .hand {
+      font-family: 'Gochi Hand', cursive;
+    }
+
+    .script {
+      font-family: 'Caveat', cursive;
+    }
+
+    h1.arc {
+      font-family: 'Bangers', cursive;
+      color: var(--shin-red);
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      line-height: 1.2;
+      max-width: 640px;
+      letter-spacing: .06em;
+      -webkit-text-stroke: 2px var(--ink);
+      paint-order: stroke fill;
+      text-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .sub {
+      margin-top: 10px;
+      font-family: 'Gochi Hand', cursive;
+      font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+      color: var(--shin-blue);
+    }
+
+    .mascot {
+      font-size: clamp(4rem, 12vw, 7rem);
+      margin: 18px 0;
+      animation: bob 2.4s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(3deg);
+      }
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 22px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px 40px;
+    }
+
+    .pill {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      letter-spacing: .08em;
+      color: var(--ink);
+      background: var(--shin-yellow);
+      border: 4px solid var(--ink);
+      border-radius: 12px;
+      padding: 10px 40px;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 var(--ink);
+      transition: transform .1s ease, box-shadow .1s ease, font-size .2s ease;
+      position: relative;
+    }
+
+    .pill:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+
+    .pill:active {
+      transform: translate(4px, 4px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .pill.no {
+      background: var(--shin-sky);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .gifts {
+      display: flex;
+      gap: clamp(14px, 4vw, 44px);
+      margin-top: 26px;
+    }
+
+    .gift {
+      font-size: clamp(3.4rem, 10vw, 6rem);
+      background: none;
+      border: none;
+      cursor: pointer;
+      filter: drop-shadow(3px 3px 0 var(--ink));
+      transition: transform .18s ease;
+      animation: bob 2.8s ease-in-out infinite;
+    }
+
+    .gift:nth-child(2) {
+      animation-delay: .4s;
+    }
+
+    .gift:nth-child(3) {
+      animation-delay: .8s;
+    }
+
+    .gift:hover {
+      transform: scale(1.15) rotate(-5deg);
+    }
+
+    .gift.opened {
+      filter: grayscale(.4) opacity(.55);
+      animation: none;
+    }
+
+    .next-arrow {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      font-size: 1.6rem;
+      color: var(--ink);
+      background: var(--shin-yellow);
+      border: 4px solid var(--ink);
+      border-radius: 10px;
+      width: 52px;
+      height: 52px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+      animation: bob 1.4s ease-in-out infinite;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(26,26,26,.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .modal.show { display: flex; }
+
+    .modal-card {
+      background: var(--shin-cream);
+      border-radius: 16px;
+      border: 5px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--ink);
+      max-width: 640px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 30px 26px;
+      text-align: center;
+      position: relative;
+      animation: pop .35s ease;
+    }
+
+    .close-x {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: var(--shin-red);
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bangers', cursive;
+    }
+
+    .rakhi-title {
+      font-family: 'Bangers', cursive;
+      color: var(--shin-red);
+      font-size: clamp(1.4rem, 3.4vw, 2rem);
+      letter-spacing: .1em;
+      -webkit-text-stroke: 1.5px var(--ink);
+      text-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .rakhi-script {
+      font-family: 'Bangers', cursive;
+      color: var(--shin-blue);
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: .08em;
+      -webkit-text-stroke: 1.5px var(--ink);
+    }
+
+    .name-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: 'Bangers', cursive;
+      letter-spacing: .08em;
+      color: var(--ink);
+      background: var(--shin-yellow);
+      border: 3px solid var(--ink);
+      padding: 6px 30px;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      box-shadow: 4px 4px 0 var(--ink);
+      clip-path: polygon(0 0,100% 0,95% 50%,100% 100%,0 100%,5% 50%);
+    }
+
+    .msg {
+      margin-top: 12px;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+    }
+
+    .photo-frame {
+      margin: 18px auto 0;
+      width: min(220px, 70%);
+      aspect-ratio: 4/5;
+      background: #fff;
+      border: 5px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transform: rotate(-2deg);
+      border-radius: 8px;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-hint {
+      font-size: .85rem;
+      color: #a1887f;
+      padding: 0 14px;
+    }
+
+    .cert {
+      margin-top: 10px;
+      padding: 20px 24px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #fffde7, #fff9c4);
+      border: 4px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert::before, .cert::after {
+      content: '⭐';
+      position: absolute;
+      font-size: 4rem;
+      opacity: .1;
+      line-height: 1;
+    }
+
+    .cert::before { top: -8px; left: -8px; }
+    .cert::after  { bottom: -8px; right: -8px; }
+
+    .cert-badge { font-size: 3rem; line-height: 1; margin-bottom: 4px; }
+
+    .cert-header {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(.75rem, 1.6vw, .9rem);
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--shin-blue);
+    }
+
+    .cert-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--shin-red);
+      letter-spacing: .06em;
+      -webkit-text-stroke: 1.5px var(--ink);
+      text-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .cert-divider {
+      display: flex; align-items: center; gap: 8px;
+      margin: 8px auto; max-width: 300px;
+      color: var(--shin-red); font-size: .85rem;
+    }
+    .cert-divider::before, .cert-divider::after {
+      content: ''; flex: 1; height: 3px;
+      background: var(--shin-red); border-radius: 2px;
+    }
+
+    .cert-presented {
+      font-family: 'Gochi Hand', cursive;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: var(--shin-blue);
+    }
+
+    .cert-name {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--shin-red);
+      display: inline-block;
+      padding: 2px 30px 4px;
+      border-bottom: 4px solid var(--ink);
+      -webkit-text-stroke: 1px var(--ink);
+    }
+
+    .cert-reason {
+      font-size: clamp(.82rem, 1.7vw, .95rem);
+      color: var(--ink); line-height: 1.6;
+      margin-top: 8px; font-style: italic;
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+    }
+
+    .cert-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-top: 14px;
+      padding-top: 10px;
+      border-top: 3px dashed var(--shin-red);
+      font-size: .75rem; color: var(--shin-blue);
+      font-family: 'Nunito', sans-serif; font-weight: 700;
+    }
+
+    .cert-sig {
+      font-family: 'Gochi Hand', cursive;
+      font-size: 1.3rem; color: var(--shin-red); line-height: 1;
+    }
+
+    .seal {
+      font-size: 2.8rem;
+      filter: drop-shadow(2px 2px 0 var(--ink));
+      animation: bob 2s ease-in-out infinite;
+    }
+
+    .traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 20px;
+      max-width: 480px;
+    }
+
+    .trait {
+      font-family: 'Bangers', cursive;
+      letter-spacing: .06em;
+      background: var(--shin-yellow);
+      color: var(--ink);
+      border: 3px solid var(--ink);
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .mem-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      color: var(--shin-red);
+      letter-spacing: .12em;
+      -webkit-text-stroke: 2px var(--ink);
+      text-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .line {
+      width: 100%;
+      height: 6px;
+      margin: 16px 0 8px;
+      background: repeating-linear-gradient(90deg, var(--shin-red) 0 14px, var(--shin-yellow) 14px 28px, var(--shin-blue) 28px 42px, transparent 42px 54px);
+      border-radius: 3px;
+    }
+
+    .photos-row {
+      display: flex;
+      gap: clamp(8px, 2vw, 18px);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .clip-photo {
+      width: clamp(84px, 16vw, 130px);
+      aspect-ratio: 3/4;
+      background: #fff;
+      padding: 6px 6px 16px;
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-radius: 4px;
+    }
+
+    .clip-photo::before {
+      content: "📎";
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.1rem;
+    }
+
+    .clip-photo:nth-child(odd) {
+      transform: rotate(-3deg);
+    }
+
+    .clip-photo:nth-child(even) {
+      transform: rotate(2.5deg);
+    }
+
+    .clip-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .letter {
+      background: #fffde7;
+      background-image: repeating-linear-gradient(transparent, transparent 27px, rgba(26,111,196,.18) 27px, rgba(26,111,196,.18) 28px);
+      border-radius: 12px;
+      border: 4px solid var(--ink);
+      max-width: 560px;
+      padding: 28px 24px;
+      font-family: 'Gochi Hand', cursive;
+      font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+      line-height: 1.75;
+      color: var(--ink);
+      box-shadow: 7px 7px 0 var(--ink);
+      max-height: 58vh;
+      overflow-y: auto;
+    }
+
+    .letter b { color: var(--shin-red); }
+
+    .heart {
+      position: fixed;
+      top: -40px;
+      z-index: 99;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: .9;
+      }
+    }
+
+    @keyframes wiggle {
+      0%,100% { transform: rotate(-1deg); }
+      50%      { transform: rotate(1deg); }
+    }
+
+    .card { animation: wiggle 6s ease-in-out infinite; }
+
+    @keyframes spin-bounce {
+      0%   { transform: rotate(-8deg) scale(1); }
+      25%  { transform: rotate(8deg)  scale(1.12); }
+      50%  { transform: rotate(-5deg) scale(1); }
+      75%  { transform: rotate(5deg)  scale(1.08); }
+      100% { transform: rotate(-8deg) scale(1); }
+    }
+    .mascot { animation: spin-bounce 1.8s ease-in-out infinite; }
+
+    .speech-bubble {
+      position: relative;
+      background: #fff;
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      padding: 8px 18px;
+      margin-top: 10px;
+      font-family: 'Gochi Hand', cursive;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--shin-red);
+      box-shadow: 3px 3px 0 var(--ink);
+      display: inline-block;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: var(--ink);
+    }
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: #fff;
+      z-index: 1;
+    }
+
+    .gift-label {
+      display: block;
+      font-family: 'Bangers', cursive;
+      font-size: clamp(.7rem, 1.8vw, .95rem);
+      letter-spacing: .06em;
+      color: var(--ink);
+      background: var(--shin-yellow);
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      padding: 2px 8px;
+      margin-top: 4px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .gift-wrap { display: flex; flex-direction: column; align-items: center; }
+
+    .no-counter {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: var(--shin-red);
+      color: #fff;
+      font-family: 'Bangers', cursive;
+      font-size: .85rem;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .trait:nth-child(odd)  { background: var(--shin-yellow); transform: rotate(-1.5deg); }
+    .trait:nth-child(even) { background: #b3e5fc;            transform: rotate(1.5deg);  }
+    .trait:nth-child(3n)   { background: #c8e6c9;            transform: rotate(-1deg);   }
+    .trait:nth-child(4n)   { background: #ffccbc;            transform: rotate(2deg);    }
+    .trait:hover { transform: scale(1.1) rotate(0deg); transition: transform .15s; }
+
+    .gift-wrap .gift:hover { transform: scale(1.2) rotate(-8deg); }
+
+    .pill.yes-btn { background: var(--shin-yellow); }
+    .pill.yes-btn:hover { background: #ffe066; }
+
+    #s1 { background: linear-gradient(160deg,#FFF9C4 0%,#FFFDE7 100%); }
+    #s2 { background: linear-gradient(160deg,#e3f2fd 0%,#FFF9C4 100%); }
+    #s3 { background: linear-gradient(160deg,#FFF9C4 0%,#fce4ec 100%); }
+    #s4 { background: linear-gradient(160deg,#e8f5e9 0%,#FFF9C4 100%); }
+    #s5 { background: linear-gradient(160deg,#FFF9C4 0%,#e3f2fd 100%); }
+
+    /* ── TABLET (max 768px) ── */
+    @media (max-width: 768px) {
+      .stage { padding: 12px; }
+
+      .card {
+        width: 100%;
+        height: 96vh;
+        border-radius: 12px;
+        box-shadow: 6px 6px 0 var(--ink);
+        border-width: 4px;
+      }
+
+      .screen { padding: 20px 16px; }
+
+      h1.arc {
+        font-size: clamp(1.4rem, 5vw, 2.2rem);
+        -webkit-text-stroke: 1.5px var(--ink);
+        text-shadow: 3px 3px 0 var(--ink);
+      }
+
+      .mascot { font-size: clamp(3rem, 14vw, 5rem); margin: 12px 0; }
+
+      .btn-row { gap: 14px; margin-top: 20px; }
+
+      .pill {
+        font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+        padding: 9px 28px;
+        border-width: 3px;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+
+      .gifts { gap: clamp(10px, 5vw, 30px); margin-top: 18px; }
+      .gift  { font-size: clamp(2.8rem, 12vw, 5rem); }
+
+      .modal-card {
+        padding: 22px 16px;
+        border-width: 4px;
+        box-shadow: 6px 6px 0 var(--ink);
+        max-height: 92vh;
+      }
+
+      .photo-frame { width: min(180px, 65%); }
+
+      .cert { padding: 16px 14px; }
+      .cert-title { font-size: clamp(1.3rem, 4.5vw, 2rem); }
+      .cert-name  { font-size: clamp(1.6rem, 5vw, 2.4rem); }
+      .cert-footer { flex-direction: column; align-items: center; gap: 8px; }
+
+      .traits { gap: 8px; max-width: 100%; }
+      .trait  { font-size: .95rem; padding: 5px 12px; }
+
+      .mem-title { font-size: clamp(1.6rem, 7vw, 2.6rem); }
+      .photos-row { gap: 8px; }
+      .clip-photo { width: clamp(70px, 18vw, 110px); }
+
+      .letter {
+        padding: 18px 14px;
+        font-size: clamp(1rem, 3.2vw, 1.3rem);
+        max-height: 52vh;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+
+      .next-arrow { width: 44px; height: 44px; font-size: 1.3rem; right: 14px; bottom: 14px; }
+    }
+
+    /* ── MOBILE (max 480px) ── */
+    @media (max-width: 480px) {
+      body { overflow: auto; }
+
+      .stage { padding: 0; align-items: flex-start; }
+
+      .card {
+        width: 100%;
+        min-height: 100dvh;
+        height: auto;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+      }
+
+      .screen {
+        position: relative;
+        min-height: 100dvh;
+        padding: 24px 14px 60px;
+        justify-content: center;
+      }
+
+      h1.arc {
+        font-size: clamp(1.3rem, 6.5vw, 1.9rem);
+        -webkit-text-stroke: 1px var(--ink);
+        text-shadow: 2px 2px 0 var(--ink);
+      }
+
+      .sub { font-size: clamp(1rem, 4vw, 1.4rem); }
+      .mascot { font-size: clamp(2.8rem, 16vw, 4.5rem); margin: 10px 0; }
+
+      .btn-row { gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+      .pill {
+        font-size: clamp(1rem, 4.5vw, 1.4rem);
+        padding: 8px 22px;
+        border-width: 3px;
+        box-shadow: 3px 3px 0 var(--ink);
+      }
+
+      .gifts { gap: clamp(8px, 6vw, 22px); margin-top: 14px; }
+      .gift  { font-size: clamp(2.4rem, 16vw, 4rem); }
+
+      .modal { padding: 0; align-items: flex-end; }
+      .modal-card {
+        border-radius: 16px 16px 0 0;
+        max-height: 92dvh;
+        padding: 20px 14px;
+        border-bottom: none;
+        box-shadow: 0 -4px 0 var(--ink);
+      }
+
+      .photo-frame { width: min(150px, 60%); }
+
+      .cert { padding: 12px 10px; }
+      .cert-badge { font-size: 2.2rem; }
+      .cert-title { font-size: clamp(1.2rem, 5.5vw, 1.7rem); text-shadow: 2px 2px 0 var(--ink); }
+      .cert-name  { font-size: clamp(1.4rem, 6vw, 2rem); }
+      .cert-reason { font-size: .82rem; }
+      .cert-footer { flex-direction: column; align-items: center; gap: 6px; padding-top: 8px; }
+      .seal { font-size: 2rem; }
+
+      .traits { gap: 7px; }
+      .trait  { font-size: .88rem; padding: 4px 10px; box-shadow: 2px 2px 0 var(--ink); }
+
+      .mem-title {
+        font-size: clamp(1.4rem, 8vw, 2.2rem);
+        -webkit-text-stroke: 1px var(--ink);
+        text-shadow: 2px 2px 0 var(--ink);
+      }
+      .photos-row { gap: 6px; margin-top: 8px; }
+      .clip-photo { width: clamp(60px, 20vw, 90px); padding: 4px 4px 12px; box-shadow: 3px 3px 0 var(--ink); }
+
+      .letter {
+        padding: 14px 12px;
+        font-size: clamp(.95rem, 3.8vw, 1.2rem);
+        max-height: 48vh;
+        border-width: 3px;
+        box-shadow: 3px 3px 0 var(--ink);
+        line-height: 1.65;
+      }
+
+      .next-arrow { width: 40px; height: 40px; font-size: 1.1rem; right: 10px; bottom: 10px; border-width: 3px; }
+
+      .bubbles { display: none; }
+    }
+
+    .bubbles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .bubbles span {
+      position: absolute;
+      bottom: -100px;
+      left: var(--x);
+      width: var(--s);
+      height: var(--s);
+      background: var(--c);
+      border-radius: 50%;
+      border: 3px solid var(--ink);
+      opacity: .6;
+      animation: rise 7s var(--d) ease-in-out infinite;
+    }
+
+    @keyframes rise {
+      0%   { transform: translateY(0)   scale(1);   opacity: .55; }
+      50%  { transform: translateY(-45vh) scale(1.1); opacity: .4; }
+      100% { transform: translateY(-100vh) scale(.9); opacity: 0; }
+    }
+
+    .stage { z-index: 1; }
+  </style>
+</head>
+
+<body>
+
+  <div class="stage">
+    <div class="bubbles" aria-hidden="true">
+      <span style="--s:70px;--x:8%;--d:0s;--c:#FFE135"></span>
+      <span style="--s:50px;--x:22%;--d:1.2s;--c:#87CEEB"></span>
+      <span style="--s:60px;--x:40%;--d:0.5s;--c:#E8192C"></span>
+      <span style="--s:45px;--x:60%;--d:2s;--c:#FFE135"></span>
+      <span style="--s:65px;--x:78%;--d:0.8s;--c:#87CEEB"></span>
+      <span style="--s:55px;--x:90%;--d:1.6s;--c:#4caf50"></span>
+    </div>
+    <div class="card">
+
+      <section class="screen active" id="s1">
+        <h1 class="arc">Ruko Ruko Ruko! 🙈 I made something for you 💌</h1>
+        <div class="mascot">🌻</div>
+        <div class="speech-bubble">Khologe toh pachtaoge nahi! 😏</div>
+        <p class="sub" style="margin-top:14px">Do you wanna see it? 👀</p>
+        <div class="btn-row">
+          <button class="pill yes-btn" id="yes1">HAANJI! 🙌</button>
+          <button class="pill no" id="no1">Nahi 😤<span class="no-counter" id="noCount">0</span></button>
+        </div>
+      </section>
+
+      <section class="screen" id="s2">
+        <h1 class="arc">Sach mein excited ho?? 🤩</h1>
+        <div class="mascot">🎊</div>
+        <div class="speech-bubble">Jhooth mat bolna! 😂</div>
+        <div class="btn-row" style="margin-top:20px">
+          <button class="pill" data-go="s3">BILKUL! 🎉</button>
+          <button class="pill" data-go="s3">HAAN HAAN! 🥳</button>
+        </div>
+      </section>
+
+      <section class="screen" id="s3">
+        <h1 class="arc">3 gifts… 3 secrets! 🤫🎁</h1>
+        <div class="speech-bubble" style="margin-bottom:6px">Ek ek karke kholna, seedha mat jaana! 😤</div>
+        <div class="gifts">
+          <div class="gift-wrap">
+            <button class="gift" data-gift="g1" aria-label="Open gift 1">🎁</button>
+            <span class="gift-label">Gift #1</span>
+          </div>
+          <div class="gift-wrap">
+            <button class="gift" data-gift="g2" aria-label="Open gift 2">🎁</button>
+            <span class="gift-label">Gift #2</span>
+          </div>
+          <div class="gift-wrap">
+            <button class="gift" data-gift="g3" aria-label="Open gift 3">🎁</button>
+            <span class="gift-label">Gift #3</span>
+          </div>
+        </div>
+        <p class="sub" style="margin-top:18px">DEKHO INHE!! 👆👆</p>
+        <button class="next-arrow" id="toMemories" title="Next">➜</button>
+      </section>
+
+      <section class="screen" id="s4">
+        <div class="mem-title">📸 y a a d e i n 📸</div>
+        <div class="line"></div>
+        <div class="speech-bubble" style="margin-bottom:8px">Inhe dekh ke rona mat! 😭😂</div>
+        <div class="photos-row" id="memRow"></div>
+        <button class="pill" style="margin-top:24px" data-go="s5">Ek aur cheez bachi hai ❤️</button>
+      </section>
+
+      <section class="screen" id="s5">
+        <h1 class="arc" style="font-size:clamp(1.3rem,3.4vw,2rem)">Dil se likha hai… padhna zaroori hai! 💌</h1>
+        <div class="letter" id="letterBox" style="margin-top:16px"></div>
+        <p class="sub" id="letterFrom" style="margin-top:14px"></p>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <button class="close-x" id="closeModal">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const CONFIG = {
+      siblingName: "Didii",
+      fromName: "- aapka chhota sa bhai 😌",
+      awardName: "Best Sister",
+      cardPhoto: "../1.webp",
+      memoryPhotos: [
+        "../2.webp",
+        "../3.webp",
+        "../4.webp",
+        "../5.webp",
+        "../6.webp"
+      ],
+      letter:
+        "To my forever best friend ❤️\n" +
+        "I'm so grateful to have you in my life. Thank you for being my biggest supporter, " +
+        "my secret keeper, and the one who always knows how to make me smile. " +
+        "From endless talks to silly laughs and every random fight - I wouldn't trade a single moment.\n" +
+        "Happy Rakshabandhan, " + "Didii" + "! 🪢",
+    };
+
+    function show(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    document.querySelectorAll('[data-go]').forEach(b =>
+      b.addEventListener('click', () => { show(b.dataset.go); hearts(14); })
+    );
+
+    const noBtn = document.getElementById('no1');
+    let yesScale = 1, noCount = 0;
+    const funnyTexts = [
+      'HAANJI! 🙌', 'PLEASE HAAN KARO 🥺', 'AREYYYY 😭😭', 'BHAI KI KASAM 🤲',
+      'RONA PADEGA 😢', 'LAST CHANCE 😤', 'THEEK HAI MAAN GAYE 😑'
+    ];
+    function dodge() {
+      noCount++;
+      const countEl = document.getElementById('noCount');
+      countEl.textContent = noCount;
+      countEl.style.opacity = '1';
+      const x = Math.random() * 180 - 90;
+      const y = Math.random() * 100 - 50;
+      noBtn.style.transform = `translate(${x}px,${y}px) rotate(${Math.random()*20-10}deg)`;
+      yesScale = Math.min(yesScale + .15, 1.6);
+      const yes1 = document.getElementById('yes1');
+      yes1.style.transform = `scale(${yesScale})`;
+      yes1.textContent = funnyTexts[Math.min(Math.floor(noCount/2), funnyTexts.length-1)];
+      if (noCount >= 12) { noBtn.style.visibility = 'hidden'; }
+    }
+    noBtn.addEventListener('mouseenter', dodge);
+    noBtn.addEventListener('touchstart', e => { e.preventDefault(); dodge(); });
+    noBtn.addEventListener('click', dodge);
+
+    document.getElementById('yes1').addEventListener('click', () => { show('s2'); hearts(14); });
+
+    function hearts(n) {
+      const emo = ['⭐', '🌻', '🎈', '✨', '🍭', '💥', '💛', '🟡', '🔥', '🌟'];
+      for (let i = 0; i < n; i++) {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = emo[Math.floor(Math.random() * emo.length)];
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.fontSize = (14 + Math.random() * 22) + 'px';
+        h.style.animationDuration = (2 + Math.random() * 2.5) + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 4600);
+      }
+    }
+
+    const photoOrHint = (src, hint) =>
+      src
+        ? `<img src="${src}" alt="photo">`
+        : `<span class="photo-hint">📷<br>${hint}<br><small>(CONFIG me photo ka naam daalein)</small></span>`;
+
+    const GIFT_HTML = {
+      g1: `
+    <div style="font-size:2.4rem">🪢</div>
+    <p class="rakhi-title" style="margin-top:6px">HAPPY</p>
+    <p class="rakhi-script">Rakshabandhan</p>
+    <p class="msg">Here's to more laughs, random fights, inside jokes,<br>and all the sibling chaos!</p>
+    <div class="photo-frame">${photoOrHint(CONFIG.cardPhoto, 'humari favourite photo yahan')}</div>
+    <span class="name-tag">${CONFIG.siblingName}</span>
+  `,
+      g2: `
+    <div class="cert">
+      <div class="cert-badge">🏆</div>
+      <div class="cert-header">Official Certificate of Excellence</div>
+      <div class="cert-title">${CONFIG.awardName}<br>Award</div>
+      <div class="cert-divider">✦ ✦ ✦</div>
+      <div class="cert-presented">This award is proudly presented to:</div>
+      <div class="cert-name">${CONFIG.siblingName}</div>
+      <div class="cert-reason">for being the most precious person I have ever had.<br>Certified forever. No expiry date. 😌</div>
+      <div class="cert-footer">
+        <div><div class="cert-sig">aapka bhai</div><div>Issuer</div></div>
+        <div class="seal">🎖️</div>
+        <div><div class="cert-sig">forever 🪢</div><div>Valid Till</div></div>
+      </div>
+    </div>
+  `,
+      g3: `
+    <p class="rakhi-title" style="font-size:clamp(1.6rem,4vw,2.4rem)">YOU ARE MY -</p>
+    <div class="traits">
+      <span class="trait">🧭 google maps</span>
+      <span class="trait">💰 bank account</span>
+      <span class="trait">❤️ my lifeline</span>
+      <span class="trait">🍟 food/clothes stealer</span>
+      <span class="trait">😭 crybaby</span>
+      <span class="trait">🎬 entertainment source</span>
+      <span class="trait">🤝 bestie by choice</span>
+    </div>
+    <p class="sub" style="margin-top:20px">…aur sab kuch 💕</p>
+  `,
+    };
+
+    const modal = document.getElementById('modal');
+    const opened = new Set();
+    document.querySelectorAll('.gift').forEach(g => {
+      g.addEventListener('click', () => {
+        document.getElementById('modalBody').innerHTML = GIFT_HTML[g.dataset.gift];
+        modal.classList.add('show');
+        g.classList.add('opened');
+        opened.add(g.dataset.gift);
+        hearts(10);
+        if (opened.size === 3) {
+          const arr = document.getElementById('toMemories');
+          arr.style.display = 'flex';
+        }
+      });
+    });
+    document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('show'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('show'); });
+    document.getElementById('toMemories').addEventListener('click', () => show('s4'));
+
+    const memRow = document.getElementById('memRow');
+    CONFIG.memoryPhotos.forEach(src => {
+      const d = document.createElement('div');
+      d.className = 'clip-photo';
+      d.innerHTML = src
+        ? `<img src="${src}" alt="memory">`
+        : `<span class="photo-hint">📷<br><small>photo</small></span>`;
+      memRow.appendChild(d);
+    });
+
+    document.getElementById('letterBox').innerHTML =
+      CONFIG.letter.split('\n').map(l => l ? `<p style="margin-bottom:10px">${l}</p>` : '').join('');
+    document.getElementById('letterFrom').textContent = CONFIG.fromName;
+  </script>
+</body>
+
+</html>
