@@ -1,0 +1,155 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  background: #000;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%; height: 100%;
+}
+
+#bg   { z-index: 1; }
+#main { z-index: 2; }
+
+#ui {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hint {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,210,120,0.9);
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  letter-spacing: 2px;
+  text-shadow: 0 0 14px rgba(255,150,30,0.7);
+  animation: hintPulse 2.2s ease-in-out infinite;
+  white-space: nowrap;
+  pointer-events: none;
+}
+#hint.hide { display: none; }
+@keyframes hintPulse {
+  0%,100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+#overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  padding: 40px;
+  pointer-events: all;
+}
+#overlay.hidden { display: none; }
+
+#overlay .om,
+#overlay .main-text,
+#overlay .sub-text,
+#overlay .year,
+#overlay #replayBtn {
+  opacity: 0;
+  transform: scale(0);
+}
+
+#overlay.show .om {
+  animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.0s forwards;
+}
+#overlay.show .main-text {
+  animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.12s forwards;
+}
+#overlay.show .sub-text {
+  animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.24s forwards;
+}
+#overlay.show .year {
+  animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.36s forwards;
+}
+#overlay.show #replayBtn {
+  animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.48s forwards;
+}
+
+@keyframes popIn {
+  from { opacity:0; transform: scale(0); }
+  to   { opacity:1; transform: scale(1); }
+}
+
+.om {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  color: #ffd700;
+  animation: omGlow 2.8s ease-in-out infinite;
+}
+@keyframes omGlow {
+  0%,100% { text-shadow: 0 0 20px #ff9933, 0 0 60px #ff6600, 0 0 100px rgba(255,80,0,0.4); }
+  50%      { text-shadow: 0 0 60px #ffd700, 0 0 120px #ff9933, 0 0 200px #ff4400; }
+}
+
+.main-text {
+  font-size: clamp(1.4rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #ffd700, #ff9933, #ff4500, #ff9933, #ffd700);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+  filter: drop-shadow(0 0 18px rgba(255,140,20,0.7));
+}
+@keyframes shimmer { to { background-position: 300% center; } }
+
+.sub-text {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: clamp(0.95rem, 2.5vw, 1.5rem);
+  color: #ffcc66;
+  text-shadow: 0 0 22px rgba(255,153,51,0.9), 0 0 50px rgba(255,80,0,0.4);
+}
+
+.year {
+  font-size: clamp(1rem, 2.8vw, 1.9rem);
+  color: #ff9933;
+  letter-spacing: 12px;
+  text-shadow: 0 0 28px #ff6600, 0 0 60px rgba(255,80,0,0.4);
+}
+
+#replayBtn {
+  margin-top: 8px;
+  padding: 14px 44px;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.9rem;
+  color: #1a0000;
+  background: linear-gradient(135deg, #ffd700, #ff9933, #ff6600);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 28px rgba(255,153,51,0.75), 0 4px 20px rgba(0,0,0,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+#replayBtn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
+  animation: shine 2.8s linear infinite;
+}
+@keyframes shine { to { left: 160%; } }
+#replayBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(255,210,50,1), 0 6px 28px rgba(0,0,0,0.55);
+}
